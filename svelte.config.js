@@ -1,10 +1,15 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import legacy from '@vitejs/plugin-legacy';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			// default options are shown
+			pages: 'build-static',
+			assets: 'build-static',
+			fallback: null
+		}),
 
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
